@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+    <!--Set LiqPay Account Settings to default values-->
+    <entity name="DefaultLiqPayAccountSettings" type="liqpay_configuration">
+        <requiredEntity type="sandbox_public_key">DefaultSandboxPublicKey</requiredEntity>
+        <requiredEntity type="sandbox_private_key">DefaultSandboxPrivateKey</requiredEntity>
+    </entity>
+    <!--Default Sandbox Credentials-->
+    <entity name="DefaultSandboxPublicKey" type="sandbox_public_key">
+        <data key="value"/>
+    </entity>
+    <entity name="DefaultSandboxPrivateKey" type="sandbox_private_key">
+        <data key="value"/>
+    </entity>
+
+    <!--Set LiqPay Account Settings Sandbox Credentials-->
+    <entity name="LiqPayAccountSettingsSandboxCredentials" type="liqpay_configuration">
+        <requiredEntity type="sandbox_public_key">SandboxPublicKey</requiredEntity>
+        <requiredEntity type="sandbox_private_key">SandboxPrivateKey</requiredEntity>
+    </entity>
+    <!--Sandbox Credentials-->
+    <entity name="SandboxPublicKey" type="sandbox_public_key">
+        <data key="value">{{_CREDS.liqpay_sandbox_public_key}}</data>
+    </entity>
+    <entity name="SandboxPrivateKey" type="sandbox_private_key">
+        <data key="value">{{_CREDS.liqpay_sandbox_private_key}}</data>
+    </entity>
+</entities>
