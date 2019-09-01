@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+    <entity name="UA_Customer" type="customer">
+        <data key="group_id">1</data>
+        <data key="email" unique="prefix">Max.Pronko@example.com</data>
+        <data key="firstname">Max</data>
+        <data key="lastname">Pronko</data>
+        <data key="fullname">Max Pronko</data>
+        <data key="password">pwdTest123!</data>
+        <data key="store_id">0</data>
+        <data key="website_id">0</data>
+        <data key="group">General</data>
+        <requiredEntity type="address">UA_Address</requiredEntity>
+    </entity>
+</entities>

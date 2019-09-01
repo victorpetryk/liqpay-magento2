@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+    <entity name="UA_Address" type="address">
+        <data key="firstname">Max</data>
+        <data key="lastname">Pronko</data>
+        <array key="street">
+            <item>Khreshchatik 1</item>
+        </array>
+        <data key="city">Kyiv</data>
+        <data key="postcode">01001</data>
+        <data key="country_id">UA</data>
+        <data key="telephone">123-456-7890</data>
+        <data key="default_billing">true</data>
+        <data key="default_shipping">true</data>
+    </entity>
+</entities>
