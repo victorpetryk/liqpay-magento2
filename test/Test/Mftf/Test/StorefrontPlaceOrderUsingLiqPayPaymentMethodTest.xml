@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="StorefrontPlaceOrderUsingLiqPayPaymentMethodTest">
+        <annotations>
+            <stories value="Placing an order using LiqPay payment method"/>
+            <title value="Place order using LiqPay payment method"/>
+            <description value="Customer should be able to place order using LiqPay payment method"/>
+            <severity value="MAJOR"/>
+            <group value="checkout"/>
+            <group value="liqpay"/>
+        </annotations>
+
+        <before>
+            <!--Create category-->
+            <createData entity="_defaultCategory" stepKey="createCategory"/>
+            <!--Create product-->
+            <createData entity="_defaultProduct" stepKey="createProduct">
+                <requiredEntity createDataKey="createCategory"/>
+            </createData>
+            <!--Create customer-->
+            <createData entity="UA_Customer" stepKey="createCustomer"/>
+            <!--Set LiqPay Account Settings Sandbox Credentials-->
+            <createData entity="LiqPayAccountSettingsSandboxCredentials" stepKey="setLiqPayAccountSettingsSandboxCredentials"/>
+            <!--Login to Admin page -->
+            <actionGroup ref="LoginAsAdmin" stepKey="loginToAdminPage"/>
+        </before>
+
+        <after>
+            <!--Delete category-->
+            <deleteData createDataKey="createCategory" stepKey="deleteCategory"/>
+            <!--Delete product-->
+            <deleteData createDataKey="createProduct" stepKey="deleteProduct"/>
+            <!--Delete customer-->
+            <deleteData createDataKey="createCustomer" stepKey="deleteCustomer"/>
+            <!--Set LiqPay Account Settings to default values-->
+            <createData entity="DefaultLiqPayAccountSettings" stepKey="setDefaultLiqPayAccountSettings"/>
+            <!--Clear orders grid filters-->
+            <actionGroup ref="AdminOrdersGridClearFiltersActionGroup" stepKey="clearOrdersGridFilters"/>
+            <!--Logout from Admin page-->
+            <actionGroup ref="logout" stepKey="logoutFromAdminPage"/>
+        </after>
+
+
+    </test>
+</tests>
