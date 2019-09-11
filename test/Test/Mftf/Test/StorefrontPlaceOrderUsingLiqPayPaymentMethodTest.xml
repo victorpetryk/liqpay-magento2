@@ -42,10 +42,27 @@
             <createData entity="DefaultLiqPayConfig" stepKey="setDefaultLiqPayConfig"/>
             <!--Clear orders grid filters-->
             <actionGroup ref="AdminOrdersGridClearFiltersActionGroup" stepKey="clearOrdersGridFilters"/>
+            <!--Logout from Customer account-->
+            <actionGroup ref="StorefrontCustomerLogoutActionGroup" stepKey="logoutCustomer"/>
             <!--Logout from Admin page-->
             <actionGroup ref="logout" stepKey="logoutFromAdminPage"/>
         </after>
 
+        <!--Login as Customer-->
+        <actionGroup ref="LoginToStorefrontActionGroup" stepKey="customerLogin">
+            <argument name="Customer" value="$$createCustomer$$" />
+        </actionGroup>
 
+        <!--Add Product to shopping cart-->
+        <actionGroup ref="AddSimpleProductToCart" stepKey="addProductToCart">
+            <argument name="product" value="$$createProduct$$"/>
+        </actionGroup>
+
+        <!--Go to Checkout page-->
+        <actionGroup ref="GoToCheckoutFromMinicartActionGroup" stepKey="goToCheckoutPage" />
+
+        <!--Select "Flat Rate" shipping method and click "Next"-->
+        <click selector="{{CheckoutShippingMethodsSection.shippingMethodFlatRate}}" stepKey="selectFlatRateShippingMethod"/>
+        <click selector="{{CheckoutShippingSection.next}}" stepKey="clickNextButton"/>
     </test>
 </tests>
