@@ -6,29 +6,69 @@
  */
 -->
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
-    <!--Set LiqPay Account Settings to default values-->
-    <entity name="DefaultLiqPayAccountSettings" type="liqpay_configuration">
+    <!--Set LiqPay default configuration-->
+    <entity name="DefaultLiqPayConfig" type="liqpay_configuration">
+        <requiredEntity type="active">DisableSolution</requiredEntity>
+        <requiredEntity type="mode">SandboxMode</requiredEntity>
+        <requiredEntity type="connection_type">BuiltInFormConnectionType</requiredEntity>
+        <requiredEntity type="title">DefaultTitle</requiredEntity>
         <requiredEntity type="sandbox_public_key">DefaultSandboxPublicKey</requiredEntity>
         <requiredEntity type="sandbox_private_key">DefaultSandboxPrivateKey</requiredEntity>
     </entity>
-    <!--Default Sandbox Credentials-->
+
+    <!--Set LiqPay sandbox configuration-->
+    <entity name="LiqPaySandboxConfig" type="liqpay_configuration">
+        <requiredEntity type="active">EnableSolution</requiredEntity>
+        <requiredEntity type="mode">SandboxMode</requiredEntity>
+        <requiredEntity type="connection_type">BuiltInFormConnectionType</requiredEntity>
+        <requiredEntity type="title">DefaultTitle</requiredEntity>
+        <requiredEntity type="sandbox_public_key">SandboxPublicKey</requiredEntity>
+        <requiredEntity type="sandbox_private_key">SandboxPrivateKey</requiredEntity>
+    </entity>
+
+    <!--Enable this Solution-->
+    <entity name="EnableSolution" type="active">
+        <data key="value">1</data>
+    </entity>
+    <entity name="DisableSolution" type="active">
+        <data key="value">0</data>
+    </entity>
+
+    <!--Mode-->
+    <entity name="SandboxMode" type="mode">
+        <data key="value">sandbox</data>
+    </entity>
+    <entity name="ProductionMode" type="mode">
+        <data key="value">production</data>
+    </entity>
+
+    <!--Connection Type-->
+    <entity name="BuiltInFormConnectionType" type="connection_type">
+        <data key="value">built_in_form</data>
+    </entity>
+    <entity name="WidgetConnectionType" type="connection_type">
+        <data key="value">widget</data>
+    </entity>
+    <entity name="RedirectConnectionType" type="connection_type">
+        <data key="value">redirect</data>
+    </entity>
+
+    <!--Title-->
+    <entity name="DefaultTitle" type="title">
+        <data key="value">LiqPay</data>
+    </entity>
+
+    <!--Sandbox Credentials-->
     <entity name="DefaultSandboxPublicKey" type="sandbox_public_key">
         <data key="value"/>
     </entity>
     <entity name="DefaultSandboxPrivateKey" type="sandbox_private_key">
         <data key="value"/>
     </entity>
-
-    <!--Set LiqPay Account Settings Sandbox Credentials-->
-    <entity name="LiqPayAccountSettingsSandboxCredentials" type="liqpay_configuration">
-        <requiredEntity type="sandbox_public_key">SandboxPublicKey</requiredEntity>
-        <requiredEntity type="sandbox_private_key">SandboxPrivateKey</requiredEntity>
-    </entity>
-    <!--Sandbox Credentials-->
     <entity name="SandboxPublicKey" type="sandbox_public_key">
-        <data key="value">{{_CREDS.liqpay_sandbox_public_key}}</data>
+        <data key="value">SANDBOX_PUBLIC_KEY</data>
     </entity>
     <entity name="SandboxPrivateKey" type="sandbox_private_key">
-        <data key="value">{{_CREDS.liqpay_sandbox_private_key}}</data>
+        <data key="value">SANDBOX_PRIVATE_KEY</data>
     </entity>
 </entities>

@@ -25,8 +25,8 @@
             </createData>
             <!--Create customer-->
             <createData entity="UA_Customer" stepKey="createCustomer"/>
-            <!--Set LiqPay Account Settings Sandbox Credentials-->
-            <createData entity="LiqPayAccountSettingsSandboxCredentials" stepKey="setLiqPayAccountSettingsSandboxCredentials"/>
+            <!--Set LiqPay Sandbox Credentials-->
+            <createData entity="LiqPaySandboxConfig" stepKey="setLiqPaySandboxConfig"/>
             <!--Login to Admin page -->
             <actionGroup ref="LoginAsAdmin" stepKey="loginToAdminPage"/>
         </before>
@@ -38,8 +38,8 @@
             <deleteData createDataKey="createProduct" stepKey="deleteProduct"/>
             <!--Delete customer-->
             <deleteData createDataKey="createCustomer" stepKey="deleteCustomer"/>
-            <!--Set LiqPay Account Settings to default values-->
-            <createData entity="DefaultLiqPayAccountSettings" stepKey="setDefaultLiqPayAccountSettings"/>
+            <!--Set LiqPay Settings to default values-->
+            <createData entity="DefaultLiqPayConfig" stepKey="setDefaultLiqPayConfig"/>
             <!--Clear orders grid filters-->
             <actionGroup ref="AdminOrdersGridClearFiltersActionGroup" stepKey="clearOrdersGridFilters"/>
             <!--Logout from Admin page-->
